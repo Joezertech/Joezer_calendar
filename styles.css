@@ -1,0 +1,79 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+.headline {
+    font-size: 3em;
+    font-weight: bold;
+    animation: headline-animation 5s infinite;
+}
+
+.description {
+    font-size: 1.2em;
+}
+
+.calendar-container {
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 20px 0;
+    padding: 20px;
+    width: 90%;
+    max-width: 1200px;
+}
+
+.calendar {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+.calendar .month {
+    flex: 1 0 100%;
+    padding: 10px;
+    text-align: center;
+    background-color: #4CAF50;
+    color: white;
+}
+
+.calendar .days {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+.calendar .days div {
+    width: 14.28%;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.calendar .days div:hover {
+    background-color: #ddd;
+}
+
+/* Animation for moving feature */
+@keyframes headline-animation {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(10px); }
+}

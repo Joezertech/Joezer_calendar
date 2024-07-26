@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World-Class 2024 Calendar by Joezer Bob</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .headline {
+            font-size: 3em;
+            font-weight: bold;
+            animation: headline-animation 5s infinite;
+        }
+
+        .description {
+            font-size: 1.2em;
+        }
+
+        .calendar-container {
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 20px 0;
+            padding: 20px;
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        .month {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .month h2 {
+            background-color: #4CAF50;
+            color: white;
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 0;
+        }
+
+        .days {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            padding: 10px;
+            animation: fade-in 2s ease-in-out;
+        }
+
+        .days div {
+            width: 14.28%;
+            padding: 10px;
+            box-sizing: border-box;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            animation: scale-up 1s ease-in-out;
+        }
+
+        .days div:hover {
+            background-color: #ddd;
+            transform: scale(1.1);
+        }
+
+        @keyframes headline-animation {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(10px); }
+        }
+
+        @keyframes fade-in {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes scale-up {
+            0% { transform: scale(0.5); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="headline">World-Class 2024 Calendar</h1>
+        <p class="description">Created by Joezer Bob, Software Developer</p>
+    </header>
+    <div class="calendar-container">
+        <div id="calendar"></div>
+    </div>
+    <script>
+        function createCalendar() {
+            const calendarContainer = document.getElementById('calendar');
+            const months = [
+                'January', 'February', 'March', 'April', 'May', 'June',
+                'July', 'August', 'September', 'October', 'November', 'December'
+            ];
+
+            for (let i = 0; i < 12; i++) {
+                const monthDiv = document.createElement('div');
+                monthDiv.className = 'month';
+                monthDiv.innerHTML = `<h2>${months[i]}</h2>`;
+                calendarContainer.appendChild(monthDiv);
+
+                const daysDiv = document.createElement('div');
+                daysDiv.className = 'days';
+                monthDiv.appendChild(daysDiv);
+
+                // Add day headers
+                const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+                daysOfWeek.forEach(day => {
+                    const dayDiv = document.createElement('div');
+                    dayDiv.innerHTML = day;
+                    daysDiv.appendChild(dayDiv);
+                });
+
+                // Add day numbers
+                const daysInMonth = new Date(2024, i + 1, 0).getDate();
+                const firstDayIndex = new Date(2024, i, 1).getDay();
+                for (let j = 0; j < firstDayIndex; j++) {
+                    const emptyDiv = document.createElement('div');
+                    daysDiv.appendChild(emptyDiv);
+                }
+                for (let d = 1; d <= daysInMonth; d++) {
+                    const dayDiv = document.createElement('div');
+                    dayDiv.innerHTML = d;
+                    daysDiv.appendChild(dayDiv);
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', createCalendar);
+    </script>
+    <p class="description">Created by Joezer Bob, Software Developer</p>
+</body>
+</html>
